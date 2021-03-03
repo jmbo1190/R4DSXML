@@ -36,6 +36,11 @@ getItemDef <- function(doc) {
   
   ID_ValueListOID <- getValueListRef(ItemDefNode, namespaces)
   
+  if (length(ID_Label) < length(ID_Name)) {
+    ID_Label[length(ID_Name)] <- NA
+  }
+  
+  
   if (defVersion == "v2.1") {
     df <- data.frame(
       ID_OID,
